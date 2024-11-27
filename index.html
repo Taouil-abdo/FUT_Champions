@@ -13,11 +13,9 @@
             background-size: cover;
             margin: 0px;
             padding: 0px;
-
         }
 
-
-        #img {
+        #playerChange,#player{
             margin-bottom: 1rem;
             background-image: url(./asset/img/badge_gold.webp);
             width: 10rem;
@@ -28,13 +26,93 @@
             justify-content: center;
             align-items: center;
         }
-        #ll{
-            background-image: url(./asset/img/icon.svg);
+        #player{
+            position: absolute;
+
+        }
+        .changementParent{
+            background-color: rgb(100 100 100 / 72%);
+        }
+
+        /* #img:hover{
+
+            box-shadow: 1px 10px 10px white;
+
+        } */
+
+        #playesFormation {
+            position: relative;
+            background-image: url(./asset/img/icon.png);
             background-size: cover;
             background-repeat: no-repeat;
-            width: 50rem;
-            height: 40rem;
+            width: 54rem;
+            height: 44rem;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
 
+        }
+
+/* goalkeeper */
+
+        .goalkeeper {
+            grid-column: 6 / 8;
+            grid-row: 9/ 12;
+
+        }
+/* defense */
+        .lb {
+            grid-column: 2 / 3;
+            grid-row: 7 / 11;
+        }
+
+        .lcb {
+            grid-column: 4 / 4;
+            grid-row: 8 / 11;
+        }
+
+        .rcb {
+            grid-column: 8/ 10;
+            grid-row: 8 / 11;
+        }
+
+        .rb {
+            grid-column: 10 / 12;
+            grid-row: 7 / 11;
+        }
+/* center */
+        .lm {
+            grid-column: 3 / 4;
+            grid-row: 4 / 5;
+        }
+
+        .lcm {
+            grid-column: 5 / 6;
+            grid-row: 5 / 5;
+        }
+
+        .rcm {
+            grid-column: 7 / 8;
+            grid-row: 5 / 5;
+        }
+
+        .rm {
+            grid-column: 9 / 11;
+            grid-row: 4 / 5;
+        }
+/* attack */
+        .lf {
+            grid-column: 5 / 6;
+            grid-row: 1 / 2;
+        }
+
+        .rf {
+            grid-column: 7 / 9;
+            grid-row: 1 / 2;
+        }
+
+        span {
+            display: none;
         }
     </style>
 </head>
@@ -42,30 +120,30 @@
 <body>
 
     <div class="ml-7">
-        <span>Home</span><span> > </span><span>EA FC 25 Tactics & Formations</span>
+        <p>Home <b> > </b> EA FC 25 Tactics & Formations</p>
         <p class="text-2xl">EA FC 25 Tactics & Formations</p>
         <p>Build Custom Tactics & Formations</p>
     </div>
 
     <div id="dd" class="sm:flex gap-4 item-center md:flex justify-center item-center lg:flex justify-center item-center">
-        <div id="formation">
-            <div id="ll" class="flex; justify-center; item-center">
-               
-                <div id="img" class="flex-col justify-centent item-center">
-                    <div class="allDtat flex-col justify-center item-center mt-2" >
+        
+        <div id="formation_change_div" class="flex-col">
+            <div id="playesFormation">
+                <!-- /* goalkeeper */ -->
+                <div id="player" class="goalkeeper img flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
                         <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                             <div class="flex-col">
                                 <p class="text-sm font-bold">90</p>
-                                <p class="text-[10px]">LW</p>
+                                <p class="text-[10px]">GK</p>
                                 <p class="text-[10px]">++</p>
                             </div>
                             <div>
-                                <img src="./asset/img/player.png" alt=""
-                                    style="height:6rem;width:6rem;">
+                                <img src="./asset/img/playesr/bouno.png" alt="" style="height:6rem;width:6rem;">
                             </div>
                         </div>
                         <div class="flex-col justify-center item-center text-center">
-                                <p class="text-sm font-bold">Vini Jr</p>
+                            <p class="text-sm font-bold">Vini Jr</p>
                             <div class="flex gap-[3px]">
                                 <div class="flex-col">
                                     <p class="text-[10px] ">PAC</p>
@@ -95,26 +173,25 @@
                         </div>
                         <div class="flex gap-2 justify-center ">
                             <p class="text-[7px] bg-green-500">Brasile</p>
-                            <p class="text-[7px] bg-blue-500" >liga</p>
                             <p class="text-[7px] bg-white">R.madrid</p>
                         </div>
                     </div>
                 </div>
-                <div id="img" class="flex-col justify-centent item-center">
-                    <div class="allDtat flex-col justify-center item-center mt-2" >
+                <!-- /* defense */ -->
+                <div id="player" class=" lb flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
                         <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                             <div class="flex-col">
                                 <p class="text-sm font-bold">90</p>
-                                <p class="text-[10px]">LW</p>
+                                <p class="text-[10px]">LB</p>
                                 <p class="text-[10px]">++</p>
                             </div>
                             <div>
-                                <img src="./asset/img/player.png" alt=""
-                                    style="height:6rem;width:6rem;">
+                                <img src="./asset/img/player.png" alt="" style="height:6rem;width:6rem;">
                             </div>
                         </div>
                         <div class="flex-col justify-center item-center text-center">
-                                <p class="text-sm font-bold">Vini Jr</p>
+                            <p class="text-sm font-bold">Vini Jr</p>
                             <div class="flex gap-[3px]">
                                 <div class="flex-col">
                                     <p class="text-[10px] ">PAC</p>
@@ -144,19 +221,444 @@
                         </div>
                         <div class="flex gap-2 justify-center ">
                             <p class="text-[7px] bg-green-500">Brasile</p>
-                            <p class="text-[7px] bg-blue-500" >liga</p>
+                            <p class="text-[7px] bg-blue-500">liga</p>
                             <p class="text-[7px] bg-white">R.madrid</p>
                         </div>
                     </div>
                 </div>
-
+                <div id="player" class=" lcb flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">LCB</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/aguerd.webp" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="player" class=" rcb flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">RCB</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/player.png" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="player" class=" rb flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">RB</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/235212.webp" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /* center */ -->
+                <div id="player" class="lm flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">LM</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/diaz.webp" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="player" class="lcm flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">LCM</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/mrabet.png" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="player" class="rcm flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">RCM</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/player.png" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="player" class="rm flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">RM</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/diaz.webp" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- attack -->
+                <div id="player" class="lf flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">LF</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/rahimi.webp" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="player" class="rf flex-col justify-centent item-center">
+                    <div class="allDtat flex-col justify-center item-center mt-2">
+                        <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                            <div class="flex-col">
+                                <p class="text-sm font-bold">90</p>
+                                <p class="text-[10px]">RF</p>
+                                <p class="text-[10px]">++</p>
+                            </div>
+                            <div>
+                                <img src="./asset/img/playesr/kaabi.webp" alt="" style="height:6rem;width:6rem;">
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center item-center text-center">
+                            <p class="text-sm font-bold">Vini Jr</p>
+                            <div class="flex gap-[3px]">
+                                <div class="flex-col">
+                                    <p class="text-[10px] ">PAC</p>
+                                    <p class="text-xs font-bold">95</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">SHO</p>
+                                    <p class="text-xs font-bold">84</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PAS</p>
+                                    <p class="text-xs font-bold">81</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DRI</p>
+                                    <p class="text-xs font-bold">91</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">DEF</p>
+                                    <p class="text-xs font-bold">29</p>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-[10px]">PHY</p>
+                                    <p class="text-xs font-bold">69</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 justify-center ">
+                            <p class="text-[7px] bg-green-500">Brasile</p>
+                            <p class="text-[7px] bg-blue-500">liga</p>
+                            <p class="text-[7px] bg-white">R.madrid</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="flex-col justify-centent item-center">
-                <p class="text-2xl ml-7">dekkka</p>
-                <div style="display: flex; flex-wrap: wrap;">
-                    <div id="img" class="flex-col justify-centent item-center">
-                        <div class="allDtat flex-col justify-center item-center mt-2" >
+        <!-- changement -->
+            <div class="changementParent flex-col justify-centent item-center rounded-lg shadow-lg"> 
+                <p class="text-2xl text-white font-bold ml-7 border ">changement</p>
+                <div class="changement" style="display:flex; flex-wrap: wrap;">
+                    <div id="playerChange" class="flex-col justify-centent item-center">
+                        <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
                                     <p class="text-sm font-bold">90</p>
@@ -164,12 +666,11 @@
                                     <p class="text-[10px]">++</p>
                                 </div>
                                 <div>
-                                    <img src="./asset/img/player.png" alt=""
-                                        style="height:6rem;width:6rem;">
+                                    <img src="./asset/img/player.png" alt="" style="height:6rem;width:6rem;">
                                 </div>
                             </div>
                             <div class="flex-col justify-center item-center text-center">
-                                    <p class="text-sm font-bold">Vini Jr</p>
+                                <p class="text-sm font-bold">Vini Jr</p>
                                 <div class="flex gap-[3px]">
                                     <div class="flex-col">
                                         <p class="text-[10px] ">PAC</p>
@@ -199,13 +700,12 @@
                             </div>
                             <div class="flex gap-2 justify-center ">
                                 <p class="text-[7px] bg-green-500">Brasile</p>
-                                <p class="text-[7px] bg-blue-500" >liga</p>
                                 <p class="text-[7px] bg-white">R.madrid</p>
                             </div>
                         </div>
                     </div>
-                    <div id="img" class="flex-col justify-centent item-center">
-                        <div class="allDtat flex-col justify-center item-center mt-2" >
+                    <div id="playerChange" class="flex-col justify-centent item-center">
+                        <div class="all flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
                                     <p class="text-sm font-bold">90</p>
@@ -213,12 +713,11 @@
                                     <p class="text-[10px]">++</p>
                                 </div>
                                 <div>
-                                    <img src="./asset/img/player.png" alt=""
-                                        style="height:6rem;width:6rem;">
+                                    <img src="./asset/img/player.png" alt="" style="height:6rem;width:6rem;">
                                 </div>
                             </div>
-                            <div class="flex-col justify-center item-center text-center">
-                                    <p class="text-sm font-bold">Vini Jr</p>
+                            <!-- <div class="flex-col justify-center item-center text-center">
+                                <p class="text-sm font-bold">Vini Jr</p>
                                 <div class="flex gap-[3px]">
                                     <div class="flex-col">
                                         <p class="text-[10px] ">PAC</p>
@@ -248,60 +747,11 @@
                             </div>
                             <div class="flex gap-2 justify-center ">
                                 <p class="text-[7px] bg-green-500">Brasile</p>
-                                <p class="text-[7px] bg-blue-500" >liga</p>
                                 <p class="text-[7px] bg-white">R.madrid</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div id="img" class="flex-col justify-centent item-center">
-                        <div class="allDtat flex-col justify-center item-center mt-2" >
-                            <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
-                                <div class="flex-col">
-                                    <p class="text-sm font-bold">90</p>
-                                    <p class="text-[10px]">LW</p>
-                                    <p class="text-[10px]">++</p>
-                                </div>
-                                <div>
-                                    <img src="./asset/img/player.png" alt=""
-                                        style="height:6rem;width:6rem;">
-                                </div>
-                            </div>
-                            <div class="flex-col justify-center item-center text-center">
-                                    <p class="text-sm font-bold">Vini Jr</p>
-                                <div class="flex gap-[3px]">
-                                    <div class="flex-col">
-                                        <p class="text-[10px] ">PAC</p>
-                                        <p class="text-xs font-bold">95</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">SHO</p>
-                                        <p class="text-xs font-bold">84</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PAS</p>
-                                        <p class="text-xs font-bold">81</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">DRI</p>
-                                        <p class="text-xs font-bold">91</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">DEF</p>
-                                        <p class="text-xs font-bold">29</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PHY</p>
-                                        <p class="text-xs font-bold">69</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 justify-center ">
-                                <p class="text-[7px] bg-green-500">Brasile</p>
-                                <p class="text-[7px] bg-blue-500" >liga</p>
-                                <p class="text-[7px] bg-white">R.madrid</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -327,10 +777,21 @@
 
                     <div>
                         <label for="position" class="block text-sm font-medium text-gray-700">Position</label>
-                        <input type="text" id="position" placeholder="RW"
-                            class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        <span id="errorPosition">error position</span>
-
+                        <select class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" name="position" id="position">
+                            <option value="gk">GK</option>
+                            <option value="lb">LB</option>
+                            <option value="rb">RB</option>
+                            <option value="lcb">LCB</option>
+                            <option value="rcb">RCB</option>
+                            <option value="lm">LM</option>
+                            <option value="rm">RM</option>
+                            <option value="rcm">RCM</option>
+                            <option value="lcm">LCM</option>
+                            <option value="lf">LF</option>
+                            <option value="rf">RF</option>
+                        </select>
+                        
+                            <span id="errorPosition">error position</span>
                     </div>
 
                     <div>
@@ -345,7 +806,6 @@
                         <input type="text" id="flag" placeholder="Lionel Messi"
                             class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                         <span id="errorFlag">error Flag</span>
-
                     </div>
 
                     <div>
@@ -353,15 +813,13 @@
                         <input type="text" id="club" placeholder="Inter Miami"
                             class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                         <span id="errorClub">error Club</span>
-
                     </div>
 
                     <div>
-                        <label for="logo" class="block text-sm font-medium text-gray-700">Club Logo</label>
-                        <input type="text" id="logo" placeholder="Lionel Messi"
+                        <label for="clubLogo" class="block text-sm font-medium text-gray-700">clubLogo</label>
+                        <input type="file" id="clubLogo" placeholder="clubLogo"
                             class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                        <span id="errorlogo">error logo</span>
-
+                        <span id="errorclubLogo">error logo</span>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
@@ -388,32 +846,28 @@
                             <input type="text" id="passing" placeholder="91"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                             <span id="errorPassing">error passing</span>
-
                         </div>
                         <div>
                             <label for="dribbling" class="block text-sm font-medium text-gray-700">Dribbling</label>
                             <input type="text" id="dribbling" placeholder="95"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                             <span id="errorDribbling">error Dribbling</span>
-
                         </div>
                         <div>
                             <label for="defending" class="block text-sm font-medium text-gray-700">Defending</label>
                             <input type="text" id="defending" placeholder="35"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                             <span id="errorDefending">error Defending</span>
-
                         </div>
                         <div>
                             <label for="physical" class="block text-sm font-medium text-gray-700">Physical</label>
                             <input type="text" id="physical" placeholder="65"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
                             <span id="errorPphysical">error physical</span>
-
                         </div>
                     </div>
 
-                    <button type="submit"
+                    <button type="submit" id="addbtn"
                         class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                         add
                     </button>
@@ -424,6 +878,104 @@
 
     </div>
 
+
+    <script>
+
+        let form = document.getElementById("form");
+        let name = document.getElementById("name");
+        let position = document.getElementById("position");
+        let nationality = document.getElementById("nationality");
+        let club = document.getElementById("club");
+        let rating = document.getElementById("rating");
+        let pace = document.getElementById("pace");
+        let shooting = document.getElementById("shooting");
+        let passing = document.getElementById("passing");
+        let dribbling = document.getElementById("dribbling");
+        let defending = document.getElementById("defending");
+        let physical = document.getElementById("physical");
+        let addbtn = document.getElementById("addbtn");
+
+        form.addEventListener("submit", function () {
+
+
+
+            let players_object = {
+
+                name:name.value,
+                position:position.value,
+                nationality:nationality.value,
+                flag:flag.value,
+                club:club.value,
+                rating:rating.value,
+                pace:pace.value,
+                shooting:shooting.value,
+                passing:passing.value,
+                dribbling:dribbling.value,
+                physical:physical.value,
+                defending:defending.value,
+            }
+            const players = JSON.parse(localStorage.getItem("players")) || [] ;
+            players.push(players_object);
+            localStorage.setItem("players",JSON.stringify(players))
+            desplay();
+        })
+
+        window.onload= desplay();
+
+
+        function desplay()
+        {
+            const players = JSON.parse(localStorage.getItem("players")) || [] ;
+             let all=document.querySelector(".all")
+
+            players.forEach(element => {
+
+                all.innerHTML =`
+                
+                <div class="flex-col justify-center item-center text-center">
+                                <p class="text-sm font-bold">${element.name}</p>
+                                <div class="flex gap-[3px]">
+                                    <div class="flex-col">
+                                        <p class="text-[10px] ">${element.pace}</p>
+                                        <p class="text-xs font-bold">95</p>
+                                    </div>
+                                    <div class="flex-col">
+                                        <p class="text-[10px]">SHO</p>
+                                        <p class="text-xs font-bold">84</p>
+                                    </div>
+                                    <div class="flex-col">
+                                        <p class="text-[10px]">PAS</p>
+                                        <p class="text-xs font-bold">81</p>
+                                    </div>
+                                    <div class="flex-col">
+                                        <p class="text-[10px]">DRI</p>
+                                        <p class="text-xs font-bold">91</p>
+                                    </div>
+                                    <div class="flex-col">
+                                        <p class="text-[10px]">DEF</p>
+                                        <p class="text-xs font-bold">29</p>
+                                    </div>
+                                    <div class="flex-col">
+                                        <p class="text-[10px]">PHY</p>
+                                        <p class="text-xs font-bold">69</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 justify-center ">
+                                <p class="text-[7px] bg-green-500">Brasile</p>
+                                <p class="text-[7px] bg-white">R.madrid</p>
+                            </div>
+                
+                
+                `
+                
+            });
+
+
+        }
+
+
+    </script>
 
 
 </body>
