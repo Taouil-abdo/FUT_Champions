@@ -1,0 +1,145 @@
+        body {
+            background-image: url(../img/stadium_background.webp);
+            filter: brightness(100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #playerChange,
+        .player {
+            background-image: url(../img/badge_gold.webp);
+            width: 10rem;
+            height: 13rem;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #playerChange:hover{
+
+            
+
+        }
+
+        .player {
+            position: absolute;
+        }
+
+        .changementParent {
+            background-color: rgb(100 100 100 / 72%);
+        }
+
+        #playesFormation {
+            position: relative;
+            background-image: url(../img/icon.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 54rem;
+            height: 44rem;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+        }
+
+        /* goalkeeper */
+
+        .goalkeeper {
+            grid-column: 6 / 8;
+            grid-row: 9/ 12;
+        }
+
+        /* defense */
+        .lb {
+            grid-column: 2 / 3;
+            grid-row: 7 / 11;
+        }
+
+        .lcb {
+            grid-column: 4 / 4;
+            grid-row: 8 / 11;
+        }
+
+        .rcb {
+            grid-column: 8/ 10;
+            grid-row: 8 / 11;
+        }
+
+        .rb {
+            grid-column: 10 / 12;
+            grid-row: 7 / 11;
+        }
+
+        /* center */
+         .lm {
+            grid-column: 3 / 4;
+            grid-row: 4 / 5;
+        }
+
+        .lcm {
+            grid-column: 5 / 6;
+            grid-row: 5 / 5;
+        }
+
+        .rcm {
+            grid-column: 7 / 8;
+            grid-row: 5 / 5;
+        }
+
+        .rm {
+            grid-column: 9 / 11;
+            grid-row: 4 / 5;
+        } 
+
+        /* attack */
+         .lf {
+            grid-column: 5 / 6;
+            grid-row: 1 / 2;
+        } 
+
+         .rf { 
+            grid-column: 7 / 9;
+            grid-row: 1 / 2;
+        } 
+
+         /* ////////  */
+        
+        /*.rff {
+            grid-column: 6 / 7;
+            grid-row: 1 / 2;
+        }
+          .rmm {
+            grid-column: 9 / 10;
+            grid-row: 1 / 5;
+        }
+          .lff {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+          .lmm {
+            grid-column: 4 / 5;
+            grid-row: 4 / 5;
+        }
+          .rcmm {
+            grid-column: 8 / 9;
+            grid-row: 4 / 5;
+        }
+          .lcmm{
+            grid-column: 6 / 7;
+            grid-row: 5 / 6;
+        } */
+        
+        
+        
+
+        /* #errorFullname,#errorPosition
+        ,#errorNationality,#errorFlag,
+        #errorClub,#errorPace,#errorShooting,#errorPassing,
+        #errorDribbling,#errorPhysical,
+        #errorDefending,#errorDiving,#errorHandling,#errorKicking,
+        #errorReflexes,#errorSpeed,#errorPositioning,#errorRating 
+        { 
+            display: none;
+        } */

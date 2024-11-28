@@ -6,153 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background-image: url(./asset/img/stadium_background.webp);
-            filter: brightness(100%);
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        #playerChange,
-        .player {
-            /* margin-bottom: 1rem; */
-            background-image: url(./asset/img/badge_gold.webp);
-            width: 10rem;
-            height: 13rem;
-            background-size: cover;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .player {
-            position: absolute;
-
-        }
-
-        .changementParent {
-            background-color: rgb(100 100 100 / 72%);
-        }
-
-        /* #img:hover{
-
-            box-shadow: 1px 10px 10px white;
-
-        } */
-
-        #playesFormation {
-            position: relative;
-            background-image: url(./asset/img/icon.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 54rem;
-            height: 44rem;
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(12, 1fr);
-
-        }
-
-        /* goalkeeper */
-
-        .goalkeeper {
-            grid-column: 6 / 8;
-            grid-row: 9/ 12;
-
-        }
-
-        /* defense */
-        .lb {
-            grid-column: 2 / 3;
-            grid-row: 7 / 11;
-        }
-
-        .lcb {
-            grid-column: 4 / 4;
-            grid-row: 8 / 11;
-        }
-
-        .rcb {
-            grid-column: 8/ 10;
-            grid-row: 8 / 11;
-        }
-
-        .rb {
-            grid-column: 10 / 12;
-            grid-row: 7 / 11;
-        }
-
-        /* center */
-        .lm {
-            grid-column: 3 / 4;
-            grid-row: 4 / 5;
-        }
-
-        .lcm {
-            grid-column: 5 / 6;
-            grid-row: 5 / 5;
-        }
-
-        .rcm {
-            grid-column: 7 / 8;
-            grid-row: 5 / 5;
-        }
-
-        .rm {
-            grid-column: 9 / 11;
-            grid-row: 4 / 5;
-        }
-
-        /* attack */
-        .lf {
-            grid-column: 5 / 6;
-            grid-row: 1 / 2;
-        }
-
-        .rf {
-            grid-column: 7 / 9;
-            grid-row: 1 / 2;
-        }
-
-        span {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="asset/style/style.css">
 </head>
 
 <body>
 
     <nav class="bg-black p-4">
         <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-            <div class="text-white font-bold text-3xl mb-4 lg:mb-0 hover:text-orange-600 hover:cursor-pointer">FUT_Champion
+            <div class="text-white font-bold text-3xl mb-4 lg:mb-0 hover:text-orange-600 hover:cursor-pointer">
+                FUT_Champion
             </div>
-    
+
             <div class="lg:hidden">
                 <button class="text-white focus:outline-none">
-                        <svg class="h-6 w-6"fill="none"stroke="currentColor"viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round"strokeWidth="2"d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7">
+                        </path>
+                    </svg>
                 </button>
             </div>
         </div>
     </nav>
-    
-    
+
+
     <main>
         <div class="ml-8" style="margin-top: 26px;">
             <p class="text-gray-200">Home <b> > </b> EA FC 25 Tactics & Formations</p>
             <p class="text-2xl text-gray-400 font-bold">EA FC 25 Tactics & Formations</p>
             <p class="text-gray-200">Build Custom Tactics & Formations</p>
         </div>
-    
+
         <div id="dd"
             class="sm:flex gap-4 item-center md:flex justify-center item-center lg:flex justify-center item-center">
-    
+
             <div id="formation_change_div" class="flex-col">
+                <div>
+                    <select name="formation_players" id="formation_players">
+                        <option value="F1">4-4-2</option>
+                        <option value="F2">4-3-3</option>
+                    </select>
+                </div>
                 <div id="playesFormation">
                     <!-- /* goalkeeper */ -->
                     <div id="player" class="player goalkeeper img flex-col justify-centent item-center">
@@ -393,7 +287,7 @@
                         </div>
                     </div>
                     <!-- /* center */ -->
-                    <div id="player6" class="player lm flex-col justify-centent item-center">
+                    <div id="player5" class="player lm flex-col justify-centent item-center">
                         <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
@@ -440,7 +334,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="player7" class="player lcm flex-col justify-centent item-center">
+                    <div id="player6" class="player lcm flex-col justify-centent item-center">
                         <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
@@ -487,7 +381,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="player8" class="player rcm flex-col justify-centent item-center">
+                    <div id="player7" class="player rcm flex-col justify-centent item-center">
                         <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
@@ -534,7 +428,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="player9" class="player rm flex-col justify-centent item-center">
+                    <div id="player8" class="player rm flex-col justify-centent item-center">
                         <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
@@ -582,7 +476,7 @@
                         </div>
                     </div>
                     <!-- attack -->
-                    <div id="player10" class="player lf flex-col justify-centent item-center">
+                    <div id="player9" class="player lf flex-col justify-centent item-center">
                         <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
@@ -629,7 +523,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="player11" class="player rf flex-col justify-centent item-center">
+                    <div id="player10" class="player rf flex-col justify-centent item-center">
                         <div class="allDtat flex-col justify-center item-center mt-2">
                             <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                                 <div class="flex-col">
@@ -684,7 +578,8 @@
                     <div class="changement" style="display:flex; flex-wrap: wrap;">
                         <div id="playerChange" class="flex-col justify-centent item-center">
                             <div class="allDtat flex-col justify-center item-center mt-2">
-                                <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                                <div id="head" class=""
+                                    style="display: flex;align-items: center; justify-content: center;">
                                     <div class="flex-col">
                                         <p class="text-sm font-bold">90</p>
                                         <p class="text-[10px]">LW</p>
@@ -729,43 +624,49 @@
                                 </div>
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
-    
+
             <div id="form-parent" class="mt-9">
                 <div id="form-child">
                     <form id="form" class="max-w-md mx-auto shadow-lg rounded-lg p-4 space-y-4"
                         style="background-color: rgb(100 100 100 / 72%);height: 35rem;overflow-y: scroll;">
                         <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Player Details</h2>
-    
+
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" placeholder="Lionel Messi"
+                            <label for="Fullname" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="Fullname" placeholder="Lionel Messi"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            <span id="errorName">error</span>
+                            <span id="errorFullname"></span>
                         </div>
-    
+
+                        <div>
+                            
+                        </div>
+
                         <div class="relative w-full mb-8 border p-1 rounded-lg">
                             <label for="profileImage" class="block mb-3 text-sm font-medium text-gray-900">
-                              Upload Profile Image
+                                Upload Profile Image
                             </label>
                             <div class="flex items-center justify-center w-full">
-                              <label for="profileImage" class="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 border-gray-300 hover:border-green-500 transition-colors">
-                                <p class="mb-2 text-sm text-gray-500">
-                                    <span class="font-semibold">Click to upload</span> or drag and drop
-                                  </p>
-                                <input id="profileImage" type="file" accept="image/*" class="hidden" />
-                              </label>
+                                <label for="profileImage"
+                                    class="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 border-gray-300 hover:border-green-500 transition-colors">
+                                    <p class="mb-2 text-sm text-gray-500">
+                                        <span class="font-semibold">Click to upload</span> or drag and drop
+                                    </p>
+                                    <input id="profileImage" type="file" accept="image/*" class="hidden" />
+                                </label>
                             </div>
-                          </div>
-    
+                        </div>
+
                         <div>
                             <label for="position" class="block text-sm font-medium text-gray-700">Position</label>
                             <select
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                 name="position" id="position">
+                                <option value="Select Position">Select Position</option>
                                 <option value="GK">GK</option>
                                 <option value="LB">LB</option>
                                 <option value="RB">RB</option>
@@ -778,302 +679,159 @@
                                 <option value="LF">LF</option>
                                 <option value="RF">RF</option>
                             </select>
-                            <span id="errorPosition">error position</span>
+                            <span id="errorPosition"></span>
                         </div>
-    
+
                         <div>
                             <label for="nationality" class="block text-sm font-medium text-gray-700">Nationality</label>
                             <input type="text" id="nationality" placeholder="Argentina"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            <span id="errorNationality">error Nationality</span>
+                            <span id="errorNationality"></span>
                         </div>
-    
+
                         <div>
                             <label for="flag" class="block text-sm font-medium text-gray-700">Flag</label>
                             <input type="file" id="flag" placeholder="flag"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            <span id="errorFlag">error Flag</span>
+                            <span id="errorFlag"></span>
                         </div>
-    
+
                         <div>
                             <label for="club" class="block text-sm font-medium text-gray-700">Club</label>
                             <input type="text" id="club" placeholder="Inter Miami"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            <span id="errorClub">error Club</span>
+                            <span id="errorClub"></span>
                         </div>
-    
+
                         <div>
                             <label for="clubLogo" class="block text-sm font-medium text-gray-700">clubLogo</label>
                             <input type="file" id="clubLogo" placeholder="clubLogo"
                                 class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                            <span id="errorclubLogo">error clubLogo</span>
+                            <!-- <span id="errorclubLogo">error clubLogo</span> -->
+                        </div>
+                        <div>
+                            <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
+                            <input type="number" id="rating" placeholder="93"
+                                class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            <span id="errorRating"></span>
                         </div>
                         <!-- ////////// players statistique -->
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
-                                <input type="text" id="rating" placeholder="93"
-                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorRating">error Rating</span>
-                            </div>
+                        <div id="playerStatistique" class="grid grid-cols-2 gap-4">
+                            
                             <div>
                                 <label for="pace" class="block text-sm font-medium text-gray-700">Pace</label>
-                                <input type="text" id="pace" placeholder="85"
+                                <input type="number" id="pace" placeholder="85"
                                     class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorPace">error Pace</span>
+                                <span id="errorPace"></span>
                             </div>
                             <div>
                                 <label for="shooting" class="block text-sm font-medium text-gray-700">Shooting</label>
-                                <input type="text" id="shooting" placeholder="92"
+                                <input type="number" id="shooting" placeholder="92"
                                     class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorShooting">error Shooting</span>
+                                <span id="errorShooting"></span>
                             </div>
                             <div>
                                 <label for="passing" class="block text-sm font-medium text-gray-700">Passing</label>
-                                <input type="text" id="passing" placeholder="91"
+                                <input type="number" id="passing" placeholder="91"
                                     class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorPassing">error passing</span>
+                                <span id="errorPassing"></span>
                             </div>
                             <div>
                                 <label for="dribbling" class="block text-sm font-medium text-gray-700">Dribbling</label>
-                                <input type="text" id="dribbling" placeholder="95"
+                                <input type="number" id="dribbling" placeholder="95"
                                     class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorDribbling">error Dribbling</span>
+                                <span id="errorDribbling"></span>
                             </div>
                             <div>
                                 <label for="defending" class="block text-sm font-medium text-gray-700">Defending</label>
-                                <input type="text" id="defending" placeholder="35"
+                                <input type="number" id="defending" placeholder="35"
                                     class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorDefending">error Defending</span>
+                                <span id="errorDefending"></span>
                             </div>
                             <div>
                                 <label for="physical" class="block text-sm font-medium text-gray-700">Physical</label>
-                                <input type="text" id="physical" placeholder="65"
+                                <input type="number" id="physical" placeholder="65"
                                     class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <span id="errorPphysical">error physical</span>
+                                <span id="errorPhysical"></span>
                             </div>
                         </div>
                         <!-- ////////// players statistique -->
-    
+                        <div id="goalStatistique" class="grid grid-cols-2 gap-4 hidden">
+                            
+                            <div>
+                                <label for="diving" class="block text-sm font-medium text-gray-700">diving</label>
+                                <input type="number" id="diving" placeholder="85"
+                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <span id="errorDiving"></span>
+                            </div>
+                            <div>
+                                <label for="handling" class="block text-sm font-medium text-gray-700">handling</label>
+                                <input type="number" id="handling" placeholder="92"
+                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <span id="errorHandling"></span>
+                            </div>
+                            <div>
+                                <label for="kicking" class="block text-sm font-medium text-gray-700">kicking</label>
+                                <input type="number" id="kicking" placeholder="91"
+                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <span id="errorKicking"></span>
+                            </div>
+                            <div>
+                                <label for="reflexes" class="block text-sm font-medium text-gray-700">reflexes</label>
+                                <input type="number" id="reflexes" placeholder="95"
+                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <span id="errorReflexes"></span>
+                            </div>
+                            <div>
+                                <label for="speed" class="block text-sm font-medium text-gray-700">speed</label>
+                                <input type="number" id="speed" placeholder="35"
+                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <span id="errorSpeed"></span>
+                            </div>
+                            <div>
+                                <label for="positioning"
+                                    class="block text-sm font-medium text-gray-700">Positioning</label>
+                                <input type="number" id="positioning" placeholder="65"
+                                    class="w-full mt-1 p-2 border rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                <span id="errorPositioning"></span>
+                            </div>
+                        </div>
+
                         <button type="submit" id="addbtn"
                             class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                             add
                         </button>
                     </form>
-    
                 </div>
             </div>
         </div>
     </main>
 
-    
+
     <script>
 
+    let formation_players=document.getElementById("formation_players");
 
+    formation_players.addEventListener("change",function(){
 
-
-
-///////// fileupload
-
-        const profileImageInput = document.getElementById("profileImage");
-        let profileImageData = "";
-        profileImageInput.addEventListener("change", (event) => {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-            reader.onload = () => {
-                profileImageData = reader.result; // Store image data as a Base64 string
-                localStorage.setItem("profileImage", profileImageData); 
-            };
-            if (file) {
-                reader.readAsDataURL(file); 
-            }
-        });
-
-///////// fileupload
-
-        const clubLogo = document.getElementById("clubLogo");
-        let clubLogoData = "";
-        clubLogo.addEventListener("change", (event) => {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-            reader.onload = () => {
-                clubLogoData = reader.result; // Store image data as a Base64 string
-                localStorage.setItem("clubLogo", clubLogoData); 
-            };
-            if (file) {
-                reader.readAsDataURL(file); 
-            }
-        });
-
-
-///////// fileupload
-
-        let form = document.getElementById("form");
-        let name = document.getElementById("name");
-        let position = document.getElementById("position");
-        let nationality = document.getElementById("nationality");
-        let club = document.getElementById("club");
-        let rating = document.getElementById("rating");
-        let pace = document.getElementById("pace");
-        let shooting = document.getElementById("shooting");
-        let passing = document.getElementById("passing");
-        let dribbling = document.getElementById("dribbling");
-        let defending = document.getElementById("defending");
-        let physical = document.getElementById("physical");
-        let addbtn = document.getElementById("addbtn");
-  
-        ///////// fileupload
-
-        form.addEventListener("submit", function () {
-                //  e.preventDefault();
-
-            let players_object = {
-                name: name.value,
-                position: position.value,
-                nationality: nationality.value,
-                flag: flag.value,
-                club: club.value,
-                rating: rating.value,
-                pace: pace.value,
-                shooting: shooting.value,
-                passing: passing.value,
-                dribbling: dribbling.value,
-                physical: physical.value,
-                defending: defending.value,
-                profileImage: profileImageData,
-                clubLogo:clubLogoData
-            
-            }
-            const players = JSON.parse(localStorage.getItem("players")) || [];
-            players.push(players_object);
-            localStorage.setItem("players", JSON.stringify(players))
-            desplay();
-        })
-
-        window.onload = desplay();
-
-
-        function desplay() {
-            const players = JSON.parse(localStorage.getItem("players")) || [];
-            let changement = document.querySelector(".changement");
-            let goalkeeper = document.querySelector(".goalkeeper");
-
-            players.forEach(element => {
-
-                if (element.position == "GK") {
-                    goalkeeper.innerHTML = `
-                    <div id="playerChange" class="flex-col justify-centent item-center">
-                        <div class="allDtat flex-col justify-center item-center mt-2">
-                            <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
-                                <div class="flex-col">
-                                    <p class="text-sm font-bold">${element.rating}</p>
-                                    <p class="text-[10px]">${element.position}</p>
-                                    <p class="text-[10px]">++</p>
-                                </div>
-                                <div>
-                                    <img src="${element.profileImage}" alt="Profile Picture" style="height:6rem;width:6rem;">
-                                </div>
-                            </div>
-                
-                            <div class="flex-col justify-center item-center text-center">
-                                <p class="text-sm font-bold">${element.name}</p>
-                                <div class="flex gap-[3px]">
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PAC</p>
-                                        <p class="text-xs font-bold">${element.pace}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">SHO</p>
-                                        <p class="text-xs font-bold">${element.shooting}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PAS</p>
-                                        <p class="text-xs font-bold">${element.passing}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">DRI</p>
-                                        <p class="text-xs font-bold">${element.dribbling}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">DEF</p>
-                                        <p class="text-xs font-bold">${element.defending}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PHY</p>
-                                        <p class="text-xs font-bold">${element.physical}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 justify-center ">
-                                <p class="text-[7px] bg-green-500">${element.nationality}</p>
-                                <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:1rem;">
-                            </div>
-                        </div>
-                    </div>
-
-                `;
-
-                }
-
-                changement.innerHTML += `
-                    <div id="playerChange" class="flex-col justify-centent item-center">
-                        <div class="allDtat flex-col justify-center item-center mt-2">
-                            <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
-                                <div class="flex-col">
-                                    <p class="text-sm font-bold">${element.rating}</p>
-                                    <p class="text-[10px]">${element.position}</p>
-                                    <p class="text-[10px]">++</p>
-                                </div>
-                                <div>
-                                    <img src="./asset/img/player.png" alt="" style="height:6rem;width:6rem;">
-                                </div>
-                            </div>
-                
-                            <div class="flex-col justify-center item-center text-center">
-                                <p class="text-sm font-bold">${element.name}</p>
-                                <div class="flex gap-[3px]">
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PAC</p>
-                                        <p class="text-xs font-bold">${element.pace}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">SHO</p>
-                                        <p class="text-xs font-bold">${element.shooting}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PAS</p>
-                                        <p class="text-xs font-bold">${element.passing}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">DRI</p>
-                                        <p class="text-xs font-bold">${element.dribbling}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">DEF</p>
-                                        <p class="text-xs font-bold">${element.defending}</p>
-                                    </div>
-                                    <div class="flex-col">
-                                        <p class="text-[10px]">PHY</p>
-                                        <p class="text-xs font-bold">${element.physical}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-2 justify-center ">
-                                <p class="text-[7px] bg-green-500">${element.flag}</p>
-                                <p class="text-[7px] bg-white">${element.club}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                `;
-
-            });
-
+        if(formation_players == "F1"){
 
         }
+    })
+
+        
+       
 
 
-    </script>
+        
+
+
+       
+    </script>   
+    <script src="asset/script/script.js"></script>
+    <script src="asset/script/validationForm.js"></script>
+
+
 
 
 </body>
