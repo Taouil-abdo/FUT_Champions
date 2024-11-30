@@ -341,4 +341,25 @@ function desplay() {
 
 
 }
+////////////// delete function 
+function dlt(PlayerIndex) {
+    if (PlayerIndex !== null) {
+        const players = JSON.parse(localStorage.getItem("players"));
+        players.splice(PlayerIndex, 1);
+        localStorage.setItem("players", JSON.stringify(players));
+        desplay();
+    }
+}
+
+document.addEventListener("click", function (event) {
+
+    if (event.target.classList.contains("delete")) {
+        const index = event.target.closest(".allDtat").getAttribute("data-index");
+        dlt(index);
+    }
+});
+////////////// End delete function 
+
+
+
 
