@@ -7,7 +7,7 @@
             padding: 0px;
         }
 
-        #playerChange,
+        #bench_players,
         .player {
             background-image: url(../img/badge_gold.webp);
             width: 10rem;
@@ -18,7 +18,7 @@
             justify-content: center;
             align-items: center;
         }
-        #playerChange:hover{
+        #bench_players:hover{
 
             
 
@@ -143,3 +143,7 @@
         { 
             display: none;
         } */
+
+        .hidden {
+            display: none;
+        }

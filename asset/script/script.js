@@ -1,44 +1,35 @@
         ///////// fileupload_Profile
-
         const profileImageInput = document.getElementById("profileImage");
         let profileImageData = "";
         profileImageInput.addEventListener("change", (event) => {
             const file = event.target.files[0];
             const reader = new FileReader();
             reader.onload = () => {
-                profileImageData = reader.result; // Store image data as a Base64 string
+                profileImageData = reader.result; 
             };
             if (file) {
                 reader.readAsDataURL(file);
             }
         });
-
         ///////// End_fileupload_Profile
 
         ///////// fileupload_Logo
-
         const clubLogo = document.getElementById("clubLogo");
         let clubLogoData = "";
         clubLogo.addEventListener("change", (event) => {
             const file = event.target.files[0];
             const reader = new FileReader();
             reader.onload = () => {
-                clubLogoData = reader.result; // Store image data as a Base64 string
+                clubLogoData = reader.result;
             };
             if (file) {
                 reader.readAsDataURL(file);
             }
         });
-
         ///////// End_fileupload_Logo
 
-        
-
         ///////// checkPositions
-
-
         position.addEventListener("change", function () {
-
             if (position.value == "GK") {
 
                 playerStatistique.classList.add("hidden");
@@ -47,10 +38,9 @@
                 playerStatistique.classList.remove("hidden");
                 goalStatistique.classList.add("hidden");
             }
-
         })
-
          ///////// End checkPositions
+
 
          /////////Add players to the localStorage
 
