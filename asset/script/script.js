@@ -29,14 +29,16 @@
         ///////// End_fileupload_Logo
 
         ///////// checkPositions
-        position.addEventListener("change", function () {
+        position.addEventListener("change", function (e) {
+            e.preventDefault();
             if (position.value == "GK") {
-
                 playerStatistique.classList.add("hidden");
                 goalStatistique.classList.remove("hidden");
+
             } else {
                 playerStatistique.classList.remove("hidden");
                 goalStatistique.classList.add("hidden");
+
             }
         })
          ///////// End checkPositions
@@ -55,7 +57,17 @@
 
 
          // function validation() {
+//             regex: /^\d{2}$/,
+//             message: "Ratting between 1 and 99",
 
+//             "player-name": {
+//     regex: /^[a-zA-Z\s]{2,10}$/,
+//     message: "the name must contain at least 5 charachters",
+//   },
+//   "profile-img": {
+//     regex: /^https?:\/\/.*\/.*\.(png|webp|jpeg|jpg)\??.*$/,
+//     message: "select .jpg .png .webp .jpeg files",
+//   },
 
 //     if (fullname.value == "") {
 //         // isValid = false;

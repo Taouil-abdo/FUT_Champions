@@ -9,19 +9,29 @@
 
         #bench_players,
         .player {
-            background-image: url(../img/badge_gold.webp);
-            width: 10rem;
-            height: 13rem;
-            background-size: cover;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    background-image: url(../img/good.webp);
+    width: 10rem;
+    height: 13rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 0px;
+    border-radius: 67px 61px 45px 48px;
+    overflow: hidden;
+    transition: box-shadow 0.5s ease;
+    -webkit-transition: box-shadow 0.5s ease;
+    -moz-transition: box-shadow 0.5s ease;
+    -ms-transition: box-shadow 0.5s ease;
+    -o-transition: box-shadow 0.5s ease;
+}
+        #bench_players,.player:hover{
+            box-shadow: 0 8px 16px rgba(0, 0, 255, 0.8); /* Stronger shadow on hover */
         }
-        #bench_players:hover{
-
-            
-
+        .delete,.update:hover{
+            box-shadow: 0 8px 16px rgba(0, 0, 255, 0.8); /* Stronger shadow on hover */
+            color: brown;
         }
 
         .player {

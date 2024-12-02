@@ -1,4 +1,3 @@
-window.onload = desplay();
 
 let fullname = document.getElementById("Fullname");
 let position = document.getElementById("position");
@@ -27,66 +26,21 @@ let playersStatus = document.getElementById("playersStatus");
 
 
 
-// personal info form
-const validationPersonalInfoForm = {
-    fullname: {
-        regex: /^[a-zA-Z\s]{2,10}$/,
-        message: "the name must contain at least 5 charachters",
-    },
-    nationality: {
-        regex: /^[a-zA-Z\s]{10,20}$/,
-        message: "Enter a valid nationality",
-    },
-    flag: {
-        regex: /^https?:\/\/.*\/.*\.(png|webp|jpeg|jpg)\??.*$/,
-        message: "select .jpg .png .webp .jpeg files",
-    },
-    club: {
-        regex: /^https?:\/\/.*\/.*\.(png|webp|jpeg|jpg)\??.*$/,
-        message: "select .jpg .png .webp .jpeg files",
-    },
-};
-function ToggleErrorMessage(field, show, message = "") {
-    const inputField = document.getElementById(`${field}`);
-    const errorMessage = document.getElementById(`${field}-error`);
-    if (show) {
-        errorMessage.textContent = message;
-        errorMessage.classList.remove("hidden");
-        inputField.classList.add("border-error");
-        inputField.classList.remove("border-gray-500");
-    } else {
-        errorMessage.textContent = "";
-        inputField.classList.add("border-gray-500");
-    }
-}
-function validatePersonalField(field, value) {
-    const rule = validationPersonalInfoForm[field];
-    if (rule && !rule.regex.test(value)) {
-        ToggleErrorMessage(field, true, rule.message);
-        return false;
-    } else {
-        ToggleErrorMessage(field, false);
-        return true;
-    }
-}
-function validatPersonalForm() {
-    let valid = true;
-    for (let field in validationPersonalInfoForm) {
-        const fieldValue = document.getElementById(field).value;
-        const fieldValid = validatePersonalField(field, fieldValue);
-        if (!fieldValid) valid = false;
-    }
-    return valid;
-}
-
-let id = 1;
 btnAdd.addEventListener("click", function (e) {
     e.preventDefault();
-    valid();
+
+    let isvalid = formValidation();
+    console.log(isvalid);
+
+    if(!isvalid) return;
 
     const players = JSON.parse(localStorage.getItem("players")) || [];
+    let playerIndex = btnAdd.getAttribute("data-index");
+    let playerId = playerIndex ? parseInt(playerIndex) : Date.now();
+
     let players_object = {
-        id: id++,
+
+        id: playerId,
         Fullname: fullname.value,
         position: position.value,
         playersStatus: playersStatus.value,
@@ -109,13 +63,21 @@ btnAdd.addEventListener("click", function (e) {
         profileImage: profileImageData,
         clubLogo: clubLogoData
     }
-    players.push(players_object);
-    localStorage.setItem("players", JSON.stringify(players))
+
+    if (playerIndex) {
+        const indexToUpdate = players.findIndex((player) => player.id === playerId);
+        if (indexToUpdate !== -1) players[indexToUpdate] = players_object;
+        btnAdd.removeAttribute("data-index"); 
+    } else {
+        players.push(players_object);
+    }
+
+        localStorage.setItem("players", JSON.stringify(players))
     desplay();
+    // resetForm();
+
 });
 
-let PlayerIndex = null;
-///// delete
 
 function desplay() {
 
@@ -134,7 +96,7 @@ function desplay() {
     principalPlayers.forEach((element, index) => {
 
             retrievedGoalData = `
-            <div class="allDtat flex-col justify-center item-center mt-2" data-index="${index}">
+            <div class="allDtat flex-col justify-center item-center mt-2" data-index="${element.id}">
                     <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                         <div class="flex-col">
                             <p class="text-sm font-bold">${element.rating}</p>
@@ -142,11 +104,11 @@ function desplay() {
                             <p class="text-[10px]">++</p>
                         </div>
                         <div>
-                            <img src="${element.profileImage}" alt="Profile Picture" style="height: 101px;width: 90px;">
+                            <img src="${element.profileImage}" alt="Profile Picture" style="height: 95px;width: 87px;">
                         </div>
                         <div class="flex flex-col">
-                            <button class="delete" type="button" onclick="dlt(${index})"><i class="fa-solid fa-trash"></i></button>
-                            <button type="button" id="update" onclick="update(${index})"><i class="fa-solid fa-pen"></i></button>
+                            <button class="delete" type="button" onclick="dlt(${element.id})"><i class="delete fa-solid fa-trash"></i></button>
+                            <button type="button" id="update" onclick="update(${element.id})"><i class=" update fa-solid fa-pen"></i></button>
                         </div>
                     </div>
                     <div class="flex-col justify-center item-center text-center">
@@ -186,19 +148,19 @@ function desplay() {
             `;
 
             retrievedData = `
-            <div class="allDtat flex-col justify-center item-center mt-2" data-index="${index}">
+            <div class="allDtat flex-col justify-center item-center mt-2" data-index="${element.id}">
                 <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
                     <div class="flex-col">
-                        <p class="text-sm font-bold">${element.rating}</p>
+                        <p class="text-md font-bold">${element.rating}</p>
                         <p class="text-[10px]">${element.position}</p>
-                        <p class="text-[10px]">+${index}+</p>
+                        <p class="text-[10px]">++</p>
                     </div>
                     <div>
-                        <img src="${element.profileImage}" alt="Profile Picture" style="height: 101px;width: 90px;">
+                        <img src="${element.profileImage}" alt="Profile Picture" style="height: 95px;width: 87px;">
                     </div>
                     <div class="flex flex-col">
-                        <button type="button" class="delete" onclick="dlt(${index})"><i class="fa-solid fa-trash"></i></button>
-                        <button type="button" id="update" onclick="update(${index})"><i class="fa-solid fa-pen"></i></button>
+                        <button type="button" class="delete" onclick="deletePlayer(${element.id})"><i class="delete fa-solid fa-trash"></i></button>
+                        <button type="button" id="update" onclick="update(${element.id})"><i class="update fa-solid fa-pen"></i></button>
                     </div>
                 </div>
                 <div class="flex-col justify-center item-center text-center">
@@ -283,83 +245,73 @@ function desplay() {
     benchPlayers.forEach((element,index) => {
         benchs.innerHTML += `
         <div id="bench_players" class="flex-col justify-centent item-center">
-            <div class="allDtat flex-col justify-center item-center mt-2" >
-                <div class="allDtat flex-col justify-center item-center mt-2">
-                    <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
-                        <div class="flex-col">
-                            <p class="text-sm font-bold">${element.rating}</p>
-                            <p class="text-[10px]">${element.position}</p>
-                            <p class="text-[10px]">+${index}+</p>
-                        </div>
-                        <div>
-                            <img src="${element.profileImage}" alt="Profile Picture" style="height:6rem;width:6rem;">
-                        </div>
-                        <div class="flex flex-col">
-                            <button type="button" class="delete" onclick="dlt(${index})"><i class="fa-solid fa-trash"></i></button>
-                            <button type="button" id="update" onclick="update(${index})"><i class="fa-solid fa-pen"></i></button>
-                        </div>
+            <div class="allDtat flex-col justify-center item-center mt-2" data-index="${element.id}">
+                <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
+                    <div class="flex-col">
+                        <p class="text-md font-bold">${element.rating}</p>
+                        <p class="text-[10px]">${element.position}</p>
+                        <p class="text-[10px]">++</p>
                     </div>
-
-                    <div class="flex-col justify-center item-center text-center">
-                        <p class="text-sm font-bold">${element.Fullname}</p>
-                        <div class="flex gap-[3px]">
-                            <div class="flex-col">
-                                <p class="text-[10px]">PAC</p>
-                                <p class="text-xs font-bold">${element.pace}</p>
-                            </div>
-                            <div class="flex-col">
-                                <p class="text-[10px]">SHO</p>
-                                <p class="text-xs font-bold">${element.shooting}</p>
-                            </div>
-                            <div class="flex-col">
-                                <p class="text-[10px]">PAS</p>
-                                <p class="text-xs font-bold">${element.passing}</p>
-                            </div>
-                            <div class="flex-col">
-                                <p class="text-[10px]">DRI</p>
-                                <p class="text-xs font-bold">${element.dribbling}</p>
-                            </div>
-                            <div class="flex-col">
-                                <p class="text-[10px]">DEF</p>
-                                <p class="text-xs font-bold">${element.defending}</p>
-                            </div>
-                            <div class="flex-col">
-                                <p class="text-[10px]">PHY</p>
-                                <p class="text-xs font-bold">${element.physical}</p>
-                            </div>
-                        </div>
+                    <div>
+                        <img src="${element.profileImage}" alt="Profile Picture" style="height: 95px;width: 87px;">
                     </div>
-                    <div class="flex gap-2 justify-center ">
-                        <p class="text-[7px] bg-green-500">${element.flag}</p>
-                        <p class="text-[7px] bg-white">${element.club}</p>
+                    <div class="flex flex-col">
+                        <button type="button" class="delete" onclick="deletePlayer(${element.id})"><i class="delete fa-solid fa-trash"></i></button>
+                        <button type="button" id="update" onclick="update(${element.id})"><i class="update fa-solid fa-pen"></i></button>
                     </div>
                 </div>
+                <div class="flex-col justify-center item-center text-center">
+                    <p class="text-sm font-bold">${element.Fullname}</p>
+                    <div class="flex gap-[3px]">
+                        <div class="flex-col">
+                            <p class="text-[10px]">PAC</p>
+                            <p class="text-xs font-bold">${element.pace}</p>
+                        </div>
+                        <div class="flex-col">
+                            <p class="text-[10px]">SHO</p>
+                            <p class="text-xs font-bold">${element.shooting}</p>
+                        </div>
+                        <div class="flex-col">
+                            <p class="text-[10px]">PAS</p>
+                            <p class="text-xs font-bold">${element.passing}</p>
+                        </div>
+                        <div class="flex-col">
+                            <p class="text-[10px]">DRI</p>
+                            <p class="text-xs font-bold">${element.dribbling}</p>
+                        </div>
+                        <div class="flex-col">
+                            <p class="text-[10px]">DEF</p>
+                            <p class="text-xs font-bold">${element.defending}</p>
+                        </div>
+                        <div class="flex-col">
+                            <p class="text-[10px]">PHY</p>
+                            <p class="text-xs font-bold">${element.physical}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-2 justify-center">
+                    <p class="text-[7px] bg-green-500">${element.nationality}</p>
+                    <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:20px;">
+                </div>
             </div>
-         </div>
-          `; 
+           `;
     });
-
-
 }
 ////////////// delete function 
-function dlt(PlayerIndex) {
-    if (PlayerIndex !== null) {
-        const players = JSON.parse(localStorage.getItem("players"));
-        players.splice(PlayerIndex, 1);
-        localStorage.setItem("players", JSON.stringify(players));
-        desplay();
-    }
-}
 
-document.addEventListener("click", function (event) {
-
-    if (event.target.classList.contains("delete")) {
-        const index = event.target.closest(".allDtat").getAttribute("data-index");
-        dlt(index);
+    function deletePlayer(playerId) {
+        let players = JSON.parse(localStorage.getItem('players'));
+        players = players.filter(player => player.id !== playerId); 
+        localStorage.setItem('players', JSON.stringify(players)); 
+        desplay(); 
     }
-});
+
+
+// })
+
 ////////////// End delete function 
 
 
 
 
+window.onload = desplay();
