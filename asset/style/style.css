@@ -26,11 +26,10 @@
     -ms-transition: box-shadow 0.5s ease;
     -o-transition: box-shadow 0.5s ease;
 }
-        #bench_players,.player:hover{
-            box-shadow: 0 8px 16px rgba(0, 0, 255, 0.8); /* Stronger shadow on hover */
+        #bench_players,.delete,.update,.player:hover{
+            box-shadow: 0 8px 16px rgba(0, 0, 255, 0.8); 
         }
-        .delete,.update:hover{
-            box-shadow: 0 8px 16px rgba(0, 0, 255, 0.8); /* Stronger shadow on hover */
+        .update,.delete:hover{
             color: brown;
         }
 

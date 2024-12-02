@@ -1,4 +1,3 @@
-
 let fullname = document.getElementById("Fullname");
 let position = document.getElementById("position");
 let nationality = document.getElementById("nationality");
@@ -25,6 +24,7 @@ let goalStatistique = document.getElementById("goalStatistique");
 let playersStatus = document.getElementById("playersStatus");
 
 
+/////////// add player to the local Storage
 
 btnAdd.addEventListener("click", function (e) {
     e.preventDefault();
@@ -45,7 +45,6 @@ btnAdd.addEventListener("click", function (e) {
         position: position.value,
         playersStatus: playersStatus.value,
         nationality: nationality.value,
-        flag: flag.value,
         club: club.value,
         rating: rating.value,
         pace: pace.value,
@@ -61,7 +60,9 @@ btnAdd.addEventListener("click", function (e) {
         speed: speed.value,
         positioning: positioning.value,
         profileImage: profileImageData,
-        clubLogo: clubLogoData
+        clubLogo: clubLogoData,        
+        flag: FlagData,
+
     }
 
     if (playerIndex) {
@@ -73,11 +74,13 @@ btnAdd.addEventListener("click", function (e) {
     }
 
         localStorage.setItem("players", JSON.stringify(players))
-    desplay();
+        desplay();
     // resetForm();
+    clearForm();
 
 });
 
+    // desplay function ;
 
 function desplay() {
 
@@ -94,7 +97,6 @@ function desplay() {
         }
     });
     principalPlayers.forEach((element, index) => {
-
             retrievedGoalData = `
             <div class="allDtat flex-col justify-center item-center mt-2" data-index="${element.id}">
                     <div id="head" class="" style="display: flex;align-items: center; justify-content: center;">
@@ -107,8 +109,8 @@ function desplay() {
                             <img src="${element.profileImage}" alt="Profile Picture" style="height: 95px;width: 87px;">
                         </div>
                         <div class="flex flex-col">
-                            <button class="delete" type="button" onclick="dlt(${element.id})"><i class="delete fa-solid fa-trash"></i></button>
-                            <button type="button" id="update" onclick="update(${element.id})"><i class=" update fa-solid fa-pen"></i></button>
+                            <button class="delete" type="button" onclick="deletePlayer(${element.id})"><i class="delete fa-solid fa-trash"></i></button>
+                            <button type="button" class="update" onclick="update(${element.id})"><i class=" update fa-solid fa-pen"></i></button>
                         </div>
                     </div>
                     <div class="flex-col justify-center item-center text-center">
@@ -143,6 +145,8 @@ function desplay() {
                     <div class="flex gap-2 justify-center">
                         <p class="text-[7px] bg-green-500">${element.nationality}</p>
                         <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:20px;">
+                        <img src="${element.flag}" alt="Profile Picture" style="height:1rem;width:20px;">
+
                     </div>
                 </div>
             `;
@@ -160,7 +164,7 @@ function desplay() {
                     </div>
                     <div class="flex flex-col">
                         <button type="button" class="delete" onclick="deletePlayer(${element.id})"><i class="delete fa-solid fa-trash"></i></button>
-                        <button type="button" id="update" onclick="update(${element.id})"><i class="update fa-solid fa-pen"></i></button>
+                        <button type="button" class="update" onclick="update(${element.id})"><i class="update fa-solid fa-pen"></i></button>
                     </div>
                 </div>
                 <div class="flex-col justify-center item-center text-center">
@@ -193,9 +197,10 @@ function desplay() {
                     </div>
                 </div>
                 <div class="flex gap-2 justify-center">
-                    <p class="text-[7px] bg-green-500">${element.nationality}</p>
-                    <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:20px;">
-                </div>
+                        <p class="text-[7px] bg-green-500">${element.nationality}</p>
+                        <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:20px;">
+                        <img src="${element.flag}" alt="Profile Picture" style="height:1rem;width:20px;">
+                    </div>
             </div>
            `;
 
@@ -290,13 +295,18 @@ function desplay() {
                     </div>
                 </div>
                 <div class="flex gap-2 justify-center">
-                    <p class="text-[7px] bg-green-500">${element.nationality}</p>
-                    <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:20px;">
-                </div>
+                        <p class="text-[7px] bg-green-500">${element.nationality}</p>
+                        <img src="${element.clubLogo}" alt="Profile Picture" style="height:1rem;width:20px;">
+                        <img src="${element.flag}" alt="Profile Picture" style="height:1rem;width:20px;">
+                    </div>
             </div>
            `;
     });
 }
+
+////////////// End display function 
+
+
 ////////////// delete function 
 
     function deletePlayer(playerId) {
@@ -304,11 +314,13 @@ function desplay() {
         players = players.filter(player => player.id !== playerId); 
         localStorage.setItem('players', JSON.stringify(players)); 
         desplay(); 
+        window.location.reload();
     }
 
-////////////// End delete function 
+////////End delete function 
 
-/// update function 
+
+///////////////update function 
 
 function update(playerId) {
     const players = JSON.parse(localStorage.getItem("players")) || [];
@@ -336,9 +348,88 @@ function update(playerId) {
         btnAdd.setAttribute("data-index", playerToEdit.id); 
     }
 }
-////////////// End update function 
+////////End update function 
+
+
+///////////// formvalidation function 
+
+function formValidation() {
+    let isValid = true;
+    let formInput = document.querySelectorAll("#form input, #form select");
+    let formInputs = Array.from(formInput).filter(input => input.type !== "hidden");
+
+    formInputs.forEach((item) => {
+        let errorSpan = item.nextElementSibling;
+        let value = item.value.trim();
+        if (errorSpan) {
+            errorSpan.classList.add("hidden");
+            errorSpan.innerText = "";
+        }
+        let isHidden = item.closest('.hidden') !== null;
+
+        if (!isHidden) {
+            if (value === "") {
+                if (errorSpan) {
+                    errorSpan.classList.remove("hidden");
+                    errorSpan.innerText = "This field is required.";
+                    errorSpan.style.color = "red";
+                    isValid = false;
+                }
+            } else if (item.type === "number") {
+                let numberValue = parseFloat(value);
+                if (isNaN(numberValue) || numberValue < 1 || numberValue > 99) {
+                    if (errorSpan) {
+                        errorSpan.classList.remove("hidden");
+                        errorSpan.innerText = "The number must be between 1 and 99.";
+                        errorSpan.style.color = "red";
+                        isValid = false;
+                    }
+                }
+            } else if (item.id === "playersStatus" && value === "status") {
+                if (errorSpan) {
+                    errorSpan.classList.remove("hidden");
+                    errorSpan.innerText = "You must select a valid status.";
+                    errorSpan.style.color = "red";
+                    isValid = false;
+                }
+            }
+        }
+    });
+
+    return isValid;
+}
 
 
 
+
+/////// End formvalidation function 
+
+function clearForm() {
+    fullname.value = "";
+    position.value = "Select Position";
+    playersStatus.value = "status";
+    nationality.value = "";
+    club.value = "";
+    rating.value = "";
+    pace.value = "";
+    shooting.value = "";
+    passing.value = "";
+    dribbling.value = "";
+    physical.value = "";
+    defending.value = "";
+    diving.value = "";
+    handling.value = "";
+    kicking.value = "";
+    reflexes.value = "";
+    speed.value = "";
+    positioning.value = "";
+    profileImageData = "";
+    clubLogoData = "";
+}
+
+// function resetForm() {
+//     clearForm();
+//     btnAdd.removeAttribute("data-index");
+// }
 
 window.onload = desplay();
