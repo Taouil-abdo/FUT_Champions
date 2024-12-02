@@ -306,10 +306,37 @@ function desplay() {
         desplay(); 
     }
 
-
-// })
-
 ////////////// End delete function 
+
+/// update function 
+
+function update(playerId) {
+    const players = JSON.parse(localStorage.getItem("players")) || [];
+    const playerToEdit = players.find((player) => player.id === playerId);
+
+    if (playerToEdit) {
+        fullname.value = playerToEdit.Fullname;
+        position.value = playerToEdit.position;
+        playersStatus.value = playerToEdit.playersStatus;
+        nationality.value = playerToEdit.nationality;
+        club.value = playerToEdit.club;
+        rating.value = playerToEdit.rating;
+        pace.value = playerToEdit.pace;
+        shooting.value = playerToEdit.shooting;
+        passing.value = playerToEdit.passing;
+        dribbling.value = playerToEdit.dribbling;
+        physical.value = playerToEdit.physical;
+        defending.value = playerToEdit.defending;
+        diving.value = playerToEdit.diving;
+        handling.value = playerToEdit.handling;
+        kicking.value = playerToEdit.kicking;
+        reflexes.value = playerToEdit.reflexes;
+        speed.value = playerToEdit.speed;
+        positioning.value = playerToEdit.positioning;
+        btnAdd.setAttribute("data-index", playerToEdit.id); 
+    }
+}
+////////////// End update function 
 
 
 
